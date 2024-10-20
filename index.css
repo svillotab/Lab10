@@ -1,0 +1,93 @@
+body {
+    font-family: 'Englebert', sans-serif;
+    margin: 3%;
+    background-color: white;
+  }
+
+/*parte de arriba*/
+.titulo {
+    background-color: lightcoral;
+    font-weight: 800;
+    height: max-content;
+    margin: 0%;
+    display: flex;
+    align-items: center;
+}
+.titulo h1 {
+    color: white;
+    margin: 0%;
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-bottom: 0.5%;
+}
+
+/*barra de poner la tarea*/
+.barra {
+    background-color: rgb(128, 214, 240);
+    height: max-content;
+    margin: 0%;
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2%;
+}
+.barra input {
+    padding-left: 10px;
+    border: none;
+    border-radius: 10px;
+    width: 40%;
+    height: 40px;
+    font: inherit;
+    font-size: 15px;
+    color: grey;
+}
+.barra input::placeholder {
+    height: 800px;
+    overflow: visible;
+}
+
+.barra button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    font: inherit;
+    background-color: rgb(22, 127, 202);
+    color: white;
+    margin-left: 2%;
+}
+
+/*todo lo demas*/
+.abajo {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2%;
+    justify-content: space-between;
+}
+.contenedor {
+    width: 30%;
+    padding: 10px;
+    background-color: #ffe6e6;
+    border: none;
+    border-radius: 5px;
+    color: #af5858;
+}
+
+/*la tarea que aparece*/
+.tarea {
+    background-color: #ffffff;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button.mover {
+    margin-left: 10px;
+    cursor: pointer;
+}
