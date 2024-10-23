@@ -32,26 +32,48 @@ function actualizarInterfaz() {
         const lista = document.createElement('div');
         lista.textContent = tarea.nombre;
         lista.classList.add('tarea');
-        lista.onclick = function() {
-            moverTarea(index);
-        };
+
+        // Crear un contenedor para los botones
+        const botonContainer = document.createElement('div');
+        botonContainer.classList.add('boton-container');
 
         if (tarea.estado === 'Pendiente') {
             listaPendientes.appendChild(lista);
+            const botonMover = document.createElement('button');
+            botonMover.textContent = '>';
+            botonMover.onclick = (event) => {
+                event.stopPropagation(); // Evitar que se ejecute el onclick de lista
+                moverTarea(index, 'Haciendo'); // Cambia a 'Haciendo'
+            };
+            botonContainer.appendChild(botonMover);
         } else if (tarea.estado === 'Haciendo') {
             listaHaciendo.appendChild(lista);
+            const botonMoverPendiente = document.createElement('button');
+            botonMoverPendiente.textContent = '<';
+            botonMoverPendiente.onclick = (event) => {
+                event.stopPropagation();
+                moverTarea(index, 'Pendiente'); // Cambia a 'Pendiente'
+            };
+
+            const botonMoverCompletada = document.createElement('button');
+            botonMoverCompletada.textContent = '>';
+            botonMoverCompletada.onclick = (event) => {
+                event.stopPropagation();
+                moverTarea(index, 'Completada'); // Cambia a 'Completada'
+            };
+
+            botonContainer.appendChild(botonMoverPendiente);
+            botonContainer.appendChild(botonMoverCompletada);
         } else if (tarea.estado === 'Completada') {
             listaCompletada.appendChild(lista);
         }
+
+        lista.appendChild(botonContainer); // Agregar el contenedor de botones a la tarea
     });
 }
 
-function moverTarea(index) {
+function moverTarea(index, nuevoEstado) {
     const tarea = tareas[index];
-    if (tarea.estado === 'Pendiente') {
-        tarea.estado = 'Haciendo';
-    } else if (tarea.estado === 'Haciendo') {
-        tarea.estado = 'Completada';
-    }
-    actualizarInterfaz();
+    tarea.estado = nuevoEstado; // Cambiar el estado a lo que se pasa como argumento
+    actualizarInterfaz(); // Actualizar la interfaz después de mover la tarea
 }

@@ -87,7 +87,26 @@ body {
     align-items: center;
 }
 
-button.mover {
-    margin-left: 10px;
+.boton-container {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+    width: 100%; 
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.boton-container button {
+    background-color: #af5858;
+    padding: 4px 5px; 
+    font-size: 11px;
+    color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    font-weight: 500;
+}
+
+.boton-container button:hover {
+    background-color: rgb(128, 214, 240);
 }
